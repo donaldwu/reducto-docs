@@ -12,7 +12,7 @@ That's why we correct and supplement Reducto outputs with VLMs.
 
 ## Introducing Enrichment Fingerprinting
 
-Enrichment Fingerprinting is a feature designed to match and align structured data extracted by Reducto with AI-generated results from large vision models. Since AI models often interpret documents differently, we establish mappings between our parsing blocks and VLM outputs.
+Enrichment Fingerprinting is a feature designed to match and align structured data extracted by Reducto with AI-generated results from large vision models. Since AI models often interpret documents differently, we establish mappings between our parsing blocks and VLM outputs to augment our rersults correctly.
 
 ### How does it work?  
 
@@ -38,7 +38,7 @@ Sometimes, there’s no exact or even good match between the two outputs. We hav
 
 - Verifying Block Adjacency: Before merging, the system checks if the blocks are logically related. We utilize our ability to identify boundaries in documents to accurately do this, without merging unrelated information by mistake. 
 
-- Default Text Inclusion: If a piece of text can’t be confidently matched with less than 90% accuracy, we still include it. This way, we avoid missing critical information loss that is common with utilizing VLMs alone. 
+- Default Text Inclusion: If a piece of text can’t be confidently matched with less than 90% accuracy, we still include it. This way, we avoid the critical information loss that is common with utilizing VLMs alone. 
 
 ## Case study 1: Medical document 
 
@@ -66,7 +66,7 @@ While the above is merely an example document, [HIPAA compliance is supported fo
 
 [Sample without EF](https://app.reducto.ai/share/663ec30d-7a5d-4b4f-84d7-75abc5405924), [Sample with EF](https://app.reducto.ai/share/0c32a21e-daa9-408a-916d-711aff2d029d)
 
-In this document, we run into a common scenario where a combination of multiple informational hierarchies (eg., nested inputs, multiple sub-sections) make for a difficult interpretation for standard VLMs to typically handle independently, much less accurately bound. 
+In this document, we run into a common scenario where a combination of multiple informational hierarchies (eg., nested inputs, multiple sub-sections) make for a difficult interpretation for standard VLMs to handle independently, much less accurately bound. 
 
 With Enrichment Fingerprinting, we can accurately capture and merge the blocks involving the Financial Information in part (III), and correctly interpret the boxes in sections 5a(1) - 5b(1). Without it, we consider these as symbols checked. 
 
