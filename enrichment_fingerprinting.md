@@ -4,7 +4,11 @@ Reducto’s vision models provide the best document processing accuracy on the m
 
 That's why we correct and supplement Reducto outputs with VLMs.
 
-&lt;graphic of Reducto&gt; 
+
+<p align="center">
+  <img src="assets/main_image.png" />
+</p>
+
 
 ## Introducing Enrichment Fingerprinting
 
@@ -14,7 +18,15 @@ Enrichment Fingerprinting is a feature designed to match and align structured da
 
 The system breaks down text into small word sequences ([n-grams](https://en.wikipedia.org/wiki/N-gram)) and identifies unique patterns within both Reducto’s structured output and the VLM-generated text. Think of an n-gram as a phrase or sequence of words, such as “Invoice total” or “Total amount due”. 
 
+<p align="center">
+  <img src="assets/n_grams.png" />
+</p>
+
 If we can identify that these two mean the same thing and find a unique, one-to-one match, we can link the VLM’s understanding of the content to Reducto’s structured data. 
+
+<p align="center">
+  <img src="assets/katz_backoff.png" />
+</p>
 
 With these n-grams, we can calculate a probability matching: for example, using simple Bayesian conditional probability with word counts, or discounting with [Katz’ backoff ](https://en.wikipedia.org/wiki/Katz%27s_back-off_model)by setting aside some probability mass (or some other smoothing method). In practice, we use a variety of methods to reduce the overall [perplexity](https://en.wikipedia.org/wiki/Perplexity) (per word) of how our n-gram model predicts matching samples.  
 
@@ -30,11 +42,14 @@ Sometimes, there’s no exact or even good match between the two outputs. We hav
 
 ## Case study 1: Medical document 
 
-source: [Kaggle](https://www.kaggle.com/datasets/mehaksingal/illegible-medical-prescription-images-dataset)
+<p align="center">
+  <img src="assets/medical_document.jpg" />
+</p>
+<p align="center">
+  Source: <a href="https://www.kaggle.com/datasets/mehaksingal/illegible-medical-prescription-images-dataset">Kaggle</a>
+</p>
 
-[Sample without EF](https://app.reducto.ai/share/4cb71f18-602e-42af-85c4-5e406619c9eb)
-
-[Sample with EF](https://app.reducto.ai/share/1c64bcb6-bd8d-4b3e-b0b5-629752da1797)
+[Sample without EF](https://app.reducto.ai/share/4cb71f18-602e-42af-85c4-5e406619c9eb), [Sample with EF](https://app.reducto.ai/share/1c64bcb6-bd8d-4b3e-b0b5-629752da1797)
 
 Here’s a simple example: a handwritten medical receipt that includes symbols (such as the logo of the company) that are accurately captured with the VLM. We combine this result with the bounding of the logo-ed area of the form captured by our vision models to get a complete, accurate understanding of the company header. 
 
@@ -42,11 +57,14 @@ While the above is merely an example document, [HIPAA compliance is supported fo
 
 ## Case study 2: IRS Retirement Plan Form
 
-Source: [Unstract ](https://unstract.com/blog/guide-to-extracting-data-from-handwritten-pdf-with-ocr/)
+<p align="center">
+  <img src="assets/irs_form.jpg" />
+</p>
+<p align="center">
+  Source: <a href="https://unstract.com/blog/guide-to-extracting-data-from-handwritten-pdf-with-ocr/">Unstract</a>
+</p>
 
-[Sample without EF](https://app.reducto.ai/share/663ec30d-7a5d-4b4f-84d7-75abc5405924)
-
-[Sample with EF](https://app.reducto.ai/share/0c32a21e-daa9-408a-916d-711aff2d029d)
+[Sample without EF](https://app.reducto.ai/share/663ec30d-7a5d-4b4f-84d7-75abc5405924), [Sample with EF](https://app.reducto.ai/share/0c32a21e-daa9-408a-916d-711aff2d029d)
 
 In this document, we run into a common scenario where a combination of multiple informational hierarchies (eg., nested inputs, multiple sub-sections) make for a difficult interpretation for standard VLMs to typically handle independently, much less accurately bound. 
 
