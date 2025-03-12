@@ -49,7 +49,7 @@ Sometimes, there’s no exact or even good match between the two outputs. We hav
   Source: <a href="https://www.kaggle.com/datasets/mehaksingal/illegible-medical-prescription-images-dataset">Kaggle</a>
 </p>
 
-[Sample without EF](https://app.reducto.ai/share/4cb71f18-602e-42af-85c4-5e406619c9eb), [Sample with EF](https://app.reducto.ai/share/1c64bcb6-bd8d-4b3e-b0b5-629752da1797)
+[Sample without enrichment](https://app.reducto.ai/share/4cb71f18-602e-42af-85c4-5e406619c9eb), [Sample with enrichment](https://app.reducto.ai/share/1c64bcb6-bd8d-4b3e-b0b5-629752da1797)
 
 Here’s a simple example: a handwritten medical receipt that includes symbols (such as the logo of the company) that are accurately captured with the VLM. We combine this result with the bounding of the logo-ed area of the form captured by our vision models to get a complete, accurate understanding of the company header. 
 
@@ -64,7 +64,7 @@ While the above is merely an example document, [HIPAA compliance is supported fo
   Source: <a href="https://unstract.com/blog/guide-to-extracting-data-from-handwritten-pdf-with-ocr/">Unstract</a>
 </p>
 
-[Sample without EF](https://app.reducto.ai/share/663ec30d-7a5d-4b4f-84d7-75abc5405924), [Sample with EF](https://app.reducto.ai/share/0c32a21e-daa9-408a-916d-711aff2d029d)
+[Sample without enrichment](https://app.reducto.ai/share/663ec30d-7a5d-4b4f-84d7-75abc5405924), [Sample with enrichment](https://app.reducto.ai/share/0c32a21e-daa9-408a-916d-711aff2d029d)
 
 In this document, we run into a common scenario where a combination of multiple informational hierarchies (eg., nested inputs, multiple sub-sections) make for a difficult interpretation for standard VLMs to handle independently, much less accurately bound. 
 
