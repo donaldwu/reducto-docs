@@ -12,7 +12,7 @@ That's why we correct and supplement Reducto outputs with VLMs.
 
 ## Introducing Enrichment Fingerprinting
 
-Enrichment Fingerprinting is a feature designed to match and align structured data extracted by Reducto with AI-generated results from large vision models. Since AI models often interpret documents differently, we establish mappings between our parsing blocks and VLM outputs to augment our rersults correctly.
+Enrichment Fingerprinting is a feature designed to match and align structured data extracted by Reducto with AI-generated results from large vision models. Since AI models often interpret documents differently, we establish mappings between our parsing blocks and VLM outputs to augment our results correctly.
 
 ### How does it work?  
 
