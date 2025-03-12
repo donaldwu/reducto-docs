@@ -18,17 +18,17 @@ Enrichment Fingerprinting is a feature designed to match and align structured da
 
 The system breaks down text into small word sequences ([n-grams](https://en.wikipedia.org/wiki/N-gram)) and identifies unique patterns within both Reducto’s structured output and the VLM-generated text. Think of an n-gram as a phrase or sequence of words, such as “Invoice total” or “Total amount due”. 
 
+If we can identify that these two mean the same thing and find a unique, one-to-one match, we can link the VLM’s understanding of the content to Reducto’s structured data. 
+
 <p align="center">
   <img src="assets/n_grams.png" />
 </p>
 
-If we can identify that these two mean the same thing and find a unique, one-to-one match, we can link the VLM’s understanding of the content to Reducto’s structured data. 
+With these n-grams, we can calculate a probability matching: for example, using simple Bayesian conditional probability with word counts, or discounting with [Katz’ backoff ](https://en.wikipedia.org/wiki/Katz%27s_back-off_model)by setting aside some probability mass (or some other smoothing method). In practice, we use a variety of methods to reduce the overall [perplexity](https://en.wikipedia.org/wiki/Perplexity) (per word) of how our n-gram model predicts matching samples.  
 
 <p align="center">
   <img src="assets/katz_backoff.png" />
 </p>
-
-With these n-grams, we can calculate a probability matching: for example, using simple Bayesian conditional probability with word counts, or discounting with [Katz’ backoff ](https://en.wikipedia.org/wiki/Katz%27s_back-off_model)by setting aside some probability mass (or some other smoothing method). In practice, we use a variety of methods to reduce the overall [perplexity](https://en.wikipedia.org/wiki/Perplexity) (per word) of how our n-gram model predicts matching samples.  
 
 Sometimes, there’s no exact or even good match between the two outputs. We have multiple strategies to resolve these differences:
 
